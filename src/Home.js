@@ -1,21 +1,28 @@
-const Home = () => {
-  const handleClick = (e) => {
-    console.log("hello, ninjas", e);
-  };
+import { useState } from 'react';
+//useState is a type of function that allows us to see the data in a specific component
 
-  const handleClickAgain = (name, e) => {
-    console.log("hello " + name, e.target);
-  };
 
-  return (
+const  Home = () => {
+
+  // let name = "Aliyah"
+
+  const [name, setName] = useState('aliyah');
+  const [age, setAge] = useState(28);
+
+  const handleClick = () => {
+     setName ('mario');
+     setAge (31);
+ 
+  }
+   return (
     <div className="home">
       <h2>Home page</h2>
-      <button onClick={handleClick}>Click me </button>
-      <button onClick={(e) => handleClickAgain("Aliyah", e)}>
-        Click me again
-      </button>
+
+       <p> { name } is {age} years old</p>
+       <button onClick={handleClick}>Click me </button>
+     
     </div>
-  );
+    );
 };
 
 export default Home;
